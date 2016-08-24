@@ -1,6 +1,6 @@
 {
   "name": "myclinic-drawer-svg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts drawer operations to SVG",
   "main": "drawer-svg.js",
   "scripts": {

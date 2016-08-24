@@ -7,12 +7,12 @@
 exports.drawerToSvg = function(ops, options){
     options = options || {};
 
-    var attr = {};
-    ['width', 'height'].forEach(function(key){
-        if( key in options ){
-            attr[key] = options[key];
-        }
-    })
+    // var attr = {};
+    // ['width', 'height'].forEach(function(key){
+    //     if( key in options ){
+    //         attr[key] = options[key];
+    //     }
+    // })
 
     var ns = "http://www.w3.org/2000/svg";
     var pen_color = "rgb(0,0,0)";
@@ -94,7 +94,8 @@ exports.drawerToSvg = function(ops, options){
             "font-weight": font_weight ? "bold" : "normal",
             "font-italic": font_italic ? "italic": "normal",
             "text-anchor": "start",
-            'dominant-baseline': "text-before-edge"
+            //'dominant-baseline': "text-after-edge",
+            "dy": "1em"
         };
         for(var key in attrs){
         	e.setAttributeNS(null, key, attrs[key]);
@@ -102,12 +103,12 @@ exports.drawerToSvg = function(ops, options){
         if( typeof xs === "number" || xs instanceof Number ){
         	e.setAttributeNS(null, "x", xs);
         } else {
-        	e.setAttributeNS(null, "x", xs.join(","));
+            e.setAttributeNS(null, "x", xs.join(","));
         }
         if( typeof ys === "number" || ys instanceof Number){
         	e.setAttributeNS(null, "y", ys);
         } else {
-        	e.setAttributeNS(null, "x", xs.join(","));
+        	e.setAttributeNS(null, "y", ys.join(","));
         }
         e.appendChild(document.createTextNode(chars));
         return e;
